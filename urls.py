@@ -2,6 +2,7 @@ from django.conf.urls.defaults import *
 from django.contrib import admin
 import os
 from django.conf import settings
+import globalviews as views
 
 admin.autodiscover()
 
@@ -12,6 +13,18 @@ sitemaps = {
 
 urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
+    url(
+        r'^patterns/$',
+        views.document,
+        name = 'document-index',
+        kwargs = {'url': ''},
+    ),
+    url(
+        r'^patterns/(?P<url>[\w./-]*)/$',
+        views.document,
+        name = 'document-detail',
+    ),
+
 )
 from calloway.urls import urlpatterns as calloway_patterns
 

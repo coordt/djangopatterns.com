@@ -1,34 +1,21 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load analytics %}
-{% block site_header %}<div id="masthead"><h1 id="logo">Daily Times</h1></div>{% endblock %}
-{% block content_nav %}{% endblock %}
-{% block member_opts %}{% if user.is_authenticated %}
-<p>Hello {{ user.first_name }}!</p>
-<ul class="member_opts">
-	<li><a href="{% url auth_logout %}">Logout</a></li>
-	<li><a href="{% url auth_password_change %}">Change Password</a></li>
-	<li><a href="{% url profiles_edit_profile %}">Edit Profile</a></li>
-	{# <li><a href="{% url profiles_profile_detail %}">View Profile</a></li> #}
-</ul>
-{% else %}
-<p>Hello Guest</p>
-<ul class="member_opts">
-	<li><a href="{% url auth_login %}">Sign In</a></li>
-	<li><a href="{% url registration_register %}">Join</a></li>
-</ul>
-{% endif %}{% endblock %}
-{% block search %}{% endblock %}
-
-{% block footer %}
-<div class="legal">
-    {% trans "&copy; 2010 &lt;your company here&gt;" %}
-    {# - <a href="{% url about %}">{% trans "About" %}</a> #}
-    {# - <a href="{% url terms %}">{% trans "Terms of Service" %}</a> #}
-    {# - <a href="{% url privacy %}">{% trans "Privacy Policy" %}</a> #}
-    {# - <a href="{% url dmca %}">{% trans "DMCA Notice" %}</a> #}
-</div>
+{% block extra_head %}
+<link href='http://fonts.googleapis.com/css?family=Unna' rel='stylesheet' type='text/css'>
 {% endblock %}
+{% block sidebar %}
+	<img src="{{ STATIC_URL}}/img/djangopatterns.png" alt="Django Patterns"/>
+	<div id="menu_container">
+	<ul id="sbmenu">
+		<li><a href="/" title="Home">Home</a></li>
+		<li><a href="/patterns/">Patterns</a></li>
+	</ul>
+	</div>
+{% endblock sidebar %}
+{% block footer %}
+<div class="legal"><a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/">Creative Commons Attribution-NonCommercial 3.0 Unported License</a>.</div>
+{% endblock footer %}
 {% block extra_body_base %}
 {% analytics_async %}
-{% endblock %}
+{% endblock extra_body_base %}

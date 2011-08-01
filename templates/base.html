@@ -1,61 +1,74 @@
-{% load i18n %}
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <title>{% if SITE_NAME %}{{ SITE_NAME }} : {% endif %}{% block head_title %}{% endblock %}</title>
-		<link rel="stylesheet" href="{{ STATIC_URL }}css/reset.css" />
-        <link rel="stylesheet" href="{{ STATIC_URL }}css/base.css" />
-        <link rel="stylesheet" href="{{ STATIC_URL }}css/uni-form.css" />
-        {% block extra_head_base %}
-            {% block extra_head %}{% endblock %}
-        {% endblock %}
-    </head>
-    
-    <body class="{% block body_class %}{% endblock %}">
-		<div id="wrapper">
-        {% if site_wide_announcements %}
-            <div id="site_wide_announcements">
-                <ul>
-                    {% for announcement in site_wide_announcements %}
-                    <li>
-                        <a href="{{ announcement.get_absolute_url }}">{{ announcement }}</a> -
-                        <a href="{% url announcement_hide announcement.pk %}?next={{ request.path }}">{% trans "Hide announcement" %}</a>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        {% endif %}
-        
-        {% block body_outer %}
-		<div id="pagecontainer">
-        <div id="body">
-            {% if messages %}
-                <ul id="messages">
-                    {% for message in messages %}
-                    <li id="message_{{ forloop.counter }}"{% if message.tags %} class="{{ message.tags }}"{% endif %}>
-                        <a href="#"><small>{% trans "clear" %}</small></a>
-                        {{ message }}
-                    </li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-            {% block site_header %}{% endblock %}
-			{% block content_nav %}{% endblock %}
-			{% block member_opts %}{% endblock %}
-			{% block search %}{% endblock %}
-            {% block body %}{% endblock %}
-        </div> {# body #}
-		</div> {# pagecontainer #}
-		</div> {# wrapper #}
+{%spaceless%}
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>{% if SITE_NAME %}{{ SITE_NAME }} : {% endif %}{% block head_title %}{% endblock %}</title>
+  	<!--[if lt IE 9]>
+  		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  	<![endif]-->
 
-        {% endblock %}
-        
-        <div id="footer">{% block footer %}{% endblock %}</div>
-        
-        <script src="{{ STATIC_URL }}js/uni-form.jquery.js" type="text/javascript"></script>
-        {% block extra_body_base %}
-            {% block extra_body %}{% endblock %}
-        {% endblock %}
-    </body>
+  	<!-- Mobile Specific Metas
+    ================================================== -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+
+  	<!-- CSS
+    ================================================== -->
+  	<link rel="stylesheet" href="{{ STATIC_URL }}/css/base.css">
+  	<link rel="stylesheet" href="{{ STATIC_URL }}/css/skeleton.css">
+  	<link rel="stylesheet" href="{{ STATIC_URL }}/css/layout.css">
+
+  	<!-- Favicons
+  	================================================== -->
+  	<link rel="shortcut icon" href="{{ STATIC_URL }}/img/favicon.ico">
+  	<link rel="apple-touch-icon" href="{{ STATIC_URL }}/img/apple-touch-icon.png">
+  	<link rel="apple-touch-icon" sizes="72x72" href="{{ STATIC_URL }}/img/apple-touch-icon-72x72.png" />
+  	<link rel="apple-touch-icon" sizes="114x114" href="{{ STATIC_URL }}/img/apple-touch-icon-114x114.png" />
+	<script type="text/javascript" src="{{ STATIC_URL }}/js/jquery-1.4.2.min.js"></script>
+    {% block extra_head_base %}
+        {% block extra_head %}
+        <meta name="description" content="">
+    	<meta name="author" content="">
+    	{% endblock %}
+    {% endblock extra_head_base %}
+</head>
+
+<body class="{% block body_class %}{% endblock %}">
+    {%endspaceless%}{% block body_outer %}
+	<div class="container">
+	<div id="header">
+		{% block site_header %}{% endblock %}
+    </div>
+	<div id="sidebar" class="three columns sidebar">
+		{% block sidebar %}&nbsp;{% endblock %}
+	</div>
+    <div id="main" class="twelve columns offset-by-one">
+		{% block content_nav %}{% endblock %}
+		{% block search %}{% endblock %}
+        {% block body %}{% endblock %}
+    </div> {# main #}
+	<div id="footer">{% block footer %}{% endblock %}</div>
+	</div> {# container #}
+    {% endblock body_outer %}{% spaceless %}
+    <script src="{{ STATIC_URL }}js/hyphenator.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+		<!-- JS
+    	================================================== -->
+    	<script src="{{ STATIC_URL }}/js/app.js"></script>
+
+    <!-- End Document
+    ================================================== -->
+    
+    {% block extra_body_base %}
+        {% block extra_body %}{% endblock %}
+    {% endblock %}
+</body>
 </html>
+{%endspaceless%}

@@ -104,7 +104,6 @@ INSTALLED_APPS = APPS_DJANGO_BASE + \
         'native_tags',
         'positions',
         'doc_builder',
-        'projects',
     )
 
 ##########################
@@ -225,7 +224,15 @@ TINYMCE_JS_ROOT = os.path.join(STATIC_ROOT, 'js/tiny_mce')
 
 DOC_GIT = "git://github.com/coordt/djangopatterns.git"
 DOC_SOURCE = os.path.join(PROJECT_ROOT, 'doc_src')
-DOC_DEST = os.path.join(PROJECT_ROOT, 'docs')
+
+STATICFILES_FINDERS = (
+    'staticfiles.finders.FileSystemFinder', 
+    'staticfiles.finders.AppDirectoriesFinder',
+    'staticfiles.finders.LegacyAppDirectoriesFinder',
+)
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'static'),
+)
 
 try:
     from local_settings import *
