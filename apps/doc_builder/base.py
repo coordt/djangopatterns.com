@@ -92,18 +92,17 @@ class BaseBuilder(object):
         the failed command.
         """
         environment = os.environ.copy()
-        environment['READTHEDOCS'] = 'True'
         cwd = os.getcwd()
         if not commands:
             raise ValueError("run() requires one or more command-line strings")
-
+        
         for command in commands:
             print("Running: '%s'" % command)
             try:
                 p = subprocess.Popen(command.split(), shell=False, cwd=cwd,
                                      stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                                      env=environment)
-
+                
                 out, err = p.communicate()
                 ret = p.returncode
             except:
@@ -111,5 +110,5 @@ class BaseBuilder(object):
                 err = traceback.format_exc()
                 ret = -1
                 print "Command failed: %s" % err
-
+        
         return (ret, out, err)
