@@ -1,0 +1,19 @@
+{% extends "docs/base_docs.html" %}
+{% block head_title %}{{ doc.title|striptags|safe }}{% endblock %}
+{% block extra_head %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/docs/docs.css" type="text/css" />
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/pygments.css" type="text/css" />
+{% endblock %}
+
+{% block body %}
+<div id="breadcrumbs">
+{% for parent in doc.parents %}
+	<a href="parent.link">{{parent.title}}</a>{% if not forloop.last %}&nbsp;&gt;&nbsp;{% endif %}
+{% endfor %}
+</div>
+	{{ doc.body|safe }}
+{% endblock body %}
+{% block extra_body_base %}
+{{ block.super }}
+{% endblock extra_body_base %}
