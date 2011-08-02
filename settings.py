@@ -104,6 +104,7 @@ INSTALLED_APPS = APPS_DJANGO_BASE + \
         'native_tags',
         'positions',
         'doc_builder',
+        'django.contrib.redirects',
     )
 
 ##########################
