@@ -4,7 +4,7 @@
 		ServerAlias media-djangopatterns
 		DocumentRoot /var/code/djangopatterns/media
 
-		WSGIDaemonProcess djangopatterns user=webdev group=webdev processes=3 threads=1 maximum-requests=1000 python-path=/home/webdev/.virtualenvs/djangopatterns/lib/python2.5/site-packages
+		WSGIDaemonProcess djangopatterns user=coordt group=www-data processes=3 threads=1 maximum-requests=1000 python-path=/home/coordt/.virtualenvs/djangopatterns/lib/python2.6/site-packages
 		WSGIProcessGroup djangopatterns
 		WSGIScriptAlias / /var/code/djangopatterns/conf/djangopatterns.wsgi
 		
@@ -27,8 +27,8 @@
 			FileETag INode MTime Size
 		</Directory>
 		
-		Alias /admin-media /home/webdev/.virtualenvs/djangopatterns/lib/python2.5/site-packages/django/contrib/admin/media
-		<Directory /home/webdev/.virtualenvs/djangopatterns/lib/python2.5/site-packages/django/contrib/admin/media>
+		Alias /admin-media /home/coordt/.virtualenvs/djangopatterns/lib/python2.6/site-packages/django/contrib/admin/media
+		<Directory /home/coordt/.virtualenvs/djangopatterns/lib/python2.6/site-packages/django/contrib/admin/media>
 			SetHandler None
 		</Directory>
 		
