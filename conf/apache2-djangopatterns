@@ -2,6 +2,7 @@
 		ServerAdmin webmaster@djangopatterns.com
 		ServerName djangopatterns
 		ServerAlias media-djangopatterns
+		ServerAlias djangopatterns.com
 		DocumentRoot /var/code/djangopatterns/media
 
 		WSGIDaemonProcess djangopatterns user=coordt group=www-data processes=3 threads=1 maximum-requests=1000 python-path=/home/coordt/.virtualenvs/djangopatterns/lib/python2.6/site-packages
