@@ -28,7 +28,6 @@ def document(request, url):
         'docs/doc.html',
     ]
     global_toc = simplejson.load(open(os.path.join(docroot, 'index.fjson'), 'rb'))
-    print global_toc['toc']
     return render_to_response(template_names, RequestContext(request, {
         'doc': simplejson.load(open(doc_path, 'rb')),
         'env': simplejson.load(open(os.path.join(docroot, 'globalcontext.json'), 'rb')),
