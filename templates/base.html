@@ -18,17 +18,17 @@
 
   	<!-- CSS
     ================================================== -->
-  	<link rel="stylesheet" href="{{ STATIC_URL }}/css/base.css">
-  	<link rel="stylesheet" href="{{ STATIC_URL }}/css/skeleton.css">
-  	<link rel="stylesheet" href="{{ STATIC_URL }}/css/layout.css">
+  	<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
+  	<link rel="stylesheet" href="{{ STATIC_URL }}css/skeleton.css">
+  	<link rel="stylesheet" href="{{ STATIC_URL }}css/layout.css">
 
   	<!-- Favicons
   	================================================== -->
-  	<link rel="shortcut icon" href="{{ STATIC_URL }}/img/favicon.ico">
-  	<link rel="apple-touch-icon" href="{{ STATIC_URL }}/img/apple-touch-icon.png">
-  	<link rel="apple-touch-icon" sizes="72x72" href="{{ STATIC_URL }}/img/apple-touch-icon-72x72.png" />
-  	<link rel="apple-touch-icon" sizes="114x114" href="{{ STATIC_URL }}/img/apple-touch-icon-114x114.png" />
-	<script type="text/javascript" src="{{ STATIC_URL }}/js/jquery-1.4.2.min.js"></script>
+  	<link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.ico">
+  	<link rel="apple-touch-icon" href="{{ STATIC_URL }}img/apple-touch-icon.png">
+  	<link rel="apple-touch-icon" sizes="72x72" href="{{ STATIC_URL }}img/apple-touch-icon-72x72.png" />
+  	<link rel="apple-touch-icon" sizes="114x114" href="{{ STATIC_URL }}img/apple-touch-icon-114x114.png" />
+	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.4.2.min.js"></script>
     {% block extra_head_base %}
         {% block extra_head %}
         <meta name="description" content="">
@@ -39,10 +39,12 @@
 
 <body class="{% block body_class %}{% endblock %}">
     {%endspaceless%}{% block body_outer %}
-	<div class="container">
 	<div id="header">
-		{% block site_header %}{% endblock %}
+	    <div class="container">
+		{% block site_header %}&nbsp;{% endblock %}
+	    </div>
     </div>
+	<div class="container">
 	<div id="sidebar" class="three columns sidebar">
 		{% block sidebar %}&nbsp;{% endblock %}
 	</div>

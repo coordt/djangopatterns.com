@@ -2,10 +2,12 @@
 {% load i18n %}
 {% load analytics %}
 {% block extra_head %}
-<link href='http://fonts.googleapis.com/css?family=Unna' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+{% endblock %}
+{% block site_header %}
+<img src="{{ STATIC_URL }}img/djangopatterns-h.png" width="542" height="80" alt="DjangoPatterns.com">
 {% endblock %}
 {% block sidebar %}
-	<img src="{{ STATIC_URL}}/img/djangopatterns.png" alt="Django Patterns"/>
 	<div id="menu_container">
 	<ul id="sbmenu">
 		<li><a href="/" title="Home">Home</a></li>

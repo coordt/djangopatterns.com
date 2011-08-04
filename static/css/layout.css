@@ -65,8 +65,12 @@
 
 /* -- code displays --------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6 { 
-	font-family: "Unna", "Georgia", "Times New Roman", serif;
+    font-family: 'PT Sans Narrow', 'Arial Narrow', 'Arial', 'Helvetica';
 	letter-spacing:-0.03em;
+}
+
+h1 {
+    font-weight: 700;
 }
 
 pre {
@@ -143,10 +147,58 @@ h1:hover > a.headerlink {
     visibility: visible;;
 }
 
-.cn {
+/*.cn {
     border: 1px solid #fff;
 }
 .cn:hover {
     border: 1px solid #999;
     background-color: #DDD;
+}*/
+/*
+dark grey: #6c7471
+dark blue grey: #2e3441
+gold: #cf8515
+med blue: #65748e
+light grey: #a4a4a4
+red: #980606
+*/
+body {
+    background-color: #a4a4a4;
+    font-family: "Georgia", "Times New Roman", serif;
+}
+.container {
+    background-color: #fff;
+}
+#header {
+    height:90px;
+    background-color: #2e3441;
+}
+
+#header div.container {
+    height:90px;
+    background: #2e3441;
+}
+
+#header p {
+    color: #980606;
+    font-size: 3em;
+}
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#main {
+    padding-top: 1em;
+}
+
+ul.simple {
+    list-style: disc inside;
+}
+
+ul.simple li {
+    margin-bottom: .5em;
 }
