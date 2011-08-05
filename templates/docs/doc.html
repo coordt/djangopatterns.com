@@ -2,15 +2,21 @@
 {% block head_title %}{{ doc.title|striptags|safe }}{% endblock %}
 {% block extra_head %}
   {{ block.super }}
-  <link rel="stylesheet" href="{{ STATIC_URL }}css/docs/docs.css" type="text/css" />
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/docutils.css" type="text/css" />
   <link rel="stylesheet" href="{{ STATIC_URL }}css/pygments.css" type="text/css" />
 {% endblock %}
 
 {% block body %}
 <div id="breadcrumbs">
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="{% url document-index %}">Patterns</a></li>
 {% for parent in doc.parents %}
-	<a href="parent.link">{{parent.title}}</a>{% if not forloop.last %}&nbsp;&gt;&nbsp;{% endif %}
+ <li><a href="{{ parent.link }}">{{parent.title}}</a></li>
 {% endfor %}
+    <li><a href="#">{{ doc.title }}</a></li>
+</ul>
+<div class="clearfix"></div>
 </div>
 	{{ doc.body|safe }}
 {% endblock body %}
