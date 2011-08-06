@@ -125,6 +125,11 @@ INSTALLED_APPS = APPS_DJANGO_BASE + \
         'disqus',
     )
 
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader', 
+    'django.template.loaders.app_directories.Loader'
+)
+
 ##########################
 # Viewpoint settings
 ##########################
@@ -252,7 +257,7 @@ STATICFILES_FINDERS = (
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
-
+GOOGLE_ANALYTICS_TRACK_PAGE_LOAD_TIME = True
 try:
     from local_settings import *
 except ImportError:
