@@ -49,12 +49,10 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware', 
     'django.contrib.sessions.middleware.SessionMiddleware', 
     'django.middleware.csrf.CsrfViewMiddleware', 
-    'django_ext.middleware.cookie.UsernameInCookieMiddleware', 
     'django.contrib.auth.middleware.AuthenticationMiddleware', 
     'django.contrib.messages.middleware.MessageMiddleware', 
     'django.middleware.gzip.GZipMiddleware', 
     'django.middleware.http.ConditionalGetMiddleware', 
-    'django.middleware.doc.XViewMiddleware', 
     'debug_toolbar.middleware.DebugToolbarMiddleware', 
     'django.contrib.redirects.middleware.RedirectFallbackMiddleware', 
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware', 
@@ -238,7 +236,7 @@ NATIVE_TAGS = (
 )
 
 ADMIN_TOOLS_THEMING_CSS = 'calloway/admin/css/theming.css'
-# ADMIN_TOOLS_MENU = 'menu.CustomMenu'
+ADMIN_TOOLS_MENU = 'menu.CustomMenu'
 
 TINYMCE_JS_URL = '%scalloway/js/tiny_mce/tiny_mce.js' % STATIC_URL
 TINYMCE_JS_ROOT = os.path.join(STATIC_ROOT, 'js/tiny_mce')

@@ -1,6 +1,7 @@
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
-from admin_tools.menu.models import *
+from admin_tools.menu.items import MenuItem, AppList
+from admin_tools.menu.menus import Menu
 
 # to activate your custom menu add the following to your settings.py:
 #
@@ -12,7 +13,7 @@ class CustomMenu(Menu):
             MenuItem(title='Dashboard', url=reverse('admin:index'))
         )
         self.children.append(
-            AppListMenuItem(title='Applications')
+            AppList(title='Applications')
         )
         
         # self.children.append(
