@@ -105,6 +105,7 @@ INSTALLED_APPS = APPS_DJANGO_BASE + \
         'positions',
         'doc_builder',
         'django.contrib.redirects',
+        'disqus',
     )
 
 ##########################

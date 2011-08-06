@@ -19,6 +19,8 @@
 <div class="clearfix"></div>
 </div>
 	{{ doc.body|safe }}
+	{% load disqus_tags %}
+    {% disqus_show_comments %}
 {% endblock body %}
 {% block extra_body_base %}
 {{ block.super }}

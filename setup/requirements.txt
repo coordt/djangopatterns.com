@@ -7,3 +7,4 @@ calloway
 -r calloway_reqs.txt
 django-debug-toolbar==0.8.5
 django-staticfiles==1.0.1
+django-disqus==0.4.1
