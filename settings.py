@@ -42,8 +42,27 @@ DATABASES = {
 
 TIME_ZONE = 'America/New_York'
 LANGUAGE_CODE = 'en-us'
-USE_I18N = True
+USE_I18N = False
 
+MIDDLEWARE_CLASSES = (
+    'django.middleware.cache.UpdateCacheMiddleware',
+    'django.middleware.common.CommonMiddleware', 
+    'django.contrib.sessions.middleware.SessionMiddleware', 
+    'django.middleware.csrf.CsrfViewMiddleware', 
+    'django_ext.middleware.cookie.UsernameInCookieMiddleware', 
+    'django.contrib.auth.middleware.AuthenticationMiddleware', 
+    'django.contrib.messages.middleware.MessageMiddleware', 
+    'django.middleware.gzip.GZipMiddleware', 
+    'django.middleware.http.ConditionalGetMiddleware', 
+    'django.middleware.doc.XViewMiddleware', 
+    'debug_toolbar.middleware.DebugToolbarMiddleware', 
+    'django.contrib.redirects.middleware.RedirectFallbackMiddleware', 
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware', 
+    'django.middleware.transaction.TransactionMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
+)
+CACHE_MIDDLEWARE_ANONYMOUS_ONLY = False
+CACHE_MIDDLEWARE_KEY_PREFIX = 'djptrns'
 try:
     from local_settings import MEDIA_URL_PREFIX
 except ImportError:
