@@ -1,0 +1,9 @@
+{% extends "viewpoint/viewpoint_base.html" %}
+{% block content %}
+<h2>Latest Entries</h2>
+<ul>
+{% for entry in object.entry_set.latest %}
+	<li><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}

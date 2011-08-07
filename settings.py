@@ -258,6 +258,10 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 GOOGLE_ANALYTICS_TRACK_PAGE_LOAD_TIME = True
+
+VIEWPOINT_SETTINGS = {
+    'DEFAULT_BLOG': 'default'
+}
 try:
     from local_settings import *
 except ImportError:
