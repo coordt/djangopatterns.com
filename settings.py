@@ -262,6 +262,9 @@ GOOGLE_ANALYTICS_TRACK_PAGE_LOAD_TIME = True
 VIEWPOINT_SETTINGS = {
     'DEFAULT_BLOG': 'default'
 }
+
+TINYMCE_JS_ROOT = os.path.join(STATIC_ROOT, 'js', 'tiny_mce')
+TINYMCE_JS_URL = "%sjs/tiny_mce/tiny_mce.js" % STATIC_URL
 try:
     from local_settings import *
 except ImportError:
