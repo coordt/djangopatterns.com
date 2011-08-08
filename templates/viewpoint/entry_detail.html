@@ -1,0 +1,5 @@
+{% extends "viewpoint/viewpoint_base.html" %}
+{% block content %}
+<h1>{{ object.title }}</h1>
+{{ object.body|safe }}
+{% endblock %}
