@@ -61,6 +61,6 @@ def update_site():
         run('workon djangopatterns && %s/manage.py collectstatic --noinput' % site_path)
     with cd(docs_path):
         run('git pull --all')
-        run('make clean')
-        run('make json')
+        run('workon djangopatterns && make clean')
+        run('workon djangopatterns && make json')
     reload_site()
