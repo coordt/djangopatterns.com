@@ -58,6 +58,9 @@ def update_site():
     docs_path = os.path.join(site_path, 'doc_src')
     with cd(site_path):
         run('git pull --all')
+        run('workon djangopatterns && %s/manage.py collectstatic --noinput' % site_path)
     with cd(docs_path):
         run('git pull --all')
+        run('make clean')
+        run('make json')
     reload_site()
