@@ -27,7 +27,11 @@
 	@media only screen and (min-width: 768px) and (max-width: 991px) {}
 	
 	/* Mobile/Browser */
-	@media only screen and (max-width: 767px) {}
+	@media only screen and (max-width: 767px) {
+	    div.container {
+	        padding: 0 10px;
+	    }
+	}
 	
 	/* Mobile Landscape/Browser */
 	@media only screen and (min-width: 480px) and (max-width: 767px) {}
@@ -47,15 +51,20 @@
 
 h1, h2, h3, h4, h5, h6 { 
     font-family: 'PT Sans Narrow', 'Arial Narrow', 'Arial', 'Helvetica';
-	letter-spacing:-0.03em;
 }
 
 h1 {
     font-weight: 700;
 }
-a { color: #F96C08;}
-a:hover { color: #F96C08;}
-a:visited { color: #65748e;}
+
+h2 {
+	margin-top: 1.25em;
+	font-weight: normal;
+	color: #3c4c6c;
+	padding-bottom: 2px;
+	border-bottom: 1px solid #8391A8;
+}
+
 pre {
     overflow: auto;
     background-color:#F1F5F9;
@@ -89,6 +98,7 @@ table.highlighttable td {
 
 tt {
     font-family:"Bitstream Vera Sans Mono",Consolas,"Lucida Console",Monoco,Courier,monospace;
+    font-size: .875em;
 }
 
 tt.descname {
@@ -161,9 +171,21 @@ body {
     color: #980606;
     font-size: 3em;
 }
-a { text-decoration: none; }
+a { color: #36c;
+    text-decoration: none; }
 
-a:hover { text-decoration: underline; }
+a:hover { 
+    color: #36c;
+	text-decoration: underline; }
+a:visited {
+	color: #036;
+	text-decoration: none;
+}
+
+a:visited:hover {
+	color: #036;
+	text-decoration: underline;
+}
 
 ul.simple { list-style: disc inside; }
 
@@ -171,6 +193,7 @@ ul.simple li { margin-bottom: .5em; }
 
 #breadcrumbs {
     border-bottom: 1px solid #999;
+    border-top: 1px solid #999;
     margin-bottom: .4em;
     background-color: #fdfdfd;
 }
@@ -241,9 +264,6 @@ ul.simple li { margin-bottom: .5em; }
 #contents p {
     margin: 0;
 }
-#contents a {
-    color: #000;
-}
 
 h1 a, h2 a, h3 a, h4 a, h5 a {
     color: #000;
@@ -254,4 +274,21 @@ li p:last-child {
 }
 .highlight-python {
     overflow: scroll;
+}
+p.admonition-title {
+    font-family: 'PT Sans Narrow', 'Arial Narrow', 'Arial', 'Helvetica';
+    font-size: 1em;
+    font-weight: bold;
+}
+
+div.admonition p {
+    margin: 0;
+}
+.caption {
+    margin: 0;
+    font-family: 'PT Sans Narrow', 'Arial Narrow', 'Arial', 'Helvetica';
+}
+
+td.code {
+    width: 100%;
 }

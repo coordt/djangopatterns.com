@@ -163,7 +163,7 @@ img.align-center, .figure.align-center, object.align-center {
 /* -- topics ---------------------------------------------------------------- */
 
 div.topic {
-    border: 1px solid #ccc;
+/*    border: 1px solid #ccc;*/
     padding: 7px 7px 0 7px;
     margin: 10px 0 10px 0;
 }
@@ -178,21 +178,20 @@ p.topic-title {
 
 div.admonition, div.attention, div.caution, div.danger, div.error,
 div.hint, div.important, div.note, div.tip, div.warning {
-    border: 1px solid #a1a5a9;
-    background-color: #f7f7f7;
-    margin: 20px;
-    padding: 0px 8px 7px 9px;
     text-align: left;
+	border: 1px solid #5088C5;
+	background-color: #f0f3f7;
+	margin: 1.667em 0 1.75em 0;
+	padding: 0 .667em .083em .750em;
+
 }
 div.attention, div.caution, div.danger, div.error, div.warning {
-    background-color:#E8E8E8;
-    border:1px solid #111111;
-    margin:30px;
 }
 p.admonition-title {
-    margin: 0px 10px 5px 0px;
+    margin: 0px 5px 5px 0px;
     font-weight: bold;
     padding-top: 3px;
+    text-shadow: 0px 0px 1px #fff;
 }
 
 div.attention p.admonition-title, div.caution p.admonition-title,
