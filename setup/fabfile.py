@@ -61,6 +61,18 @@ def update_site():
         run('workon djangopatterns && %s/manage.py collectstatic --noinput' % site_path)
     with cd(docs_path):
         run('git pull --all')
-        run('workon djangopatterns && make clean')
-        run('workon djangopatterns && make json')
+        # run('workon djangopatterns && cd doc_src && make clean')
+        # run('workon djangopatterns && cd doc_src && make json')
     reload_site()
+
+def update_docs():
+    """
+    Pull in the latest changes to the documentation on the site.
+    """
+    site_path = os.path.join(PROJECTS_ROOT, CURRENT_SITE)
+    docs_path = os.path.join(site_path, 'doc_src')
+    with cd(docs_path):
+        run('git reset --hard && git pull --all')
+        # run('workon djangopatterns && cd doc_src && make clean')
+        # run('workon djangopatterns && cd doc_src && make json')
+    

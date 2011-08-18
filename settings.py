@@ -123,6 +123,7 @@ INSTALLED_APPS = APPS_DJANGO_BASE + \
         'doc_builder',
         'django.contrib.redirects',
         'disqus',
+        'bookmarks',
     )
 
 TEMPLATE_LOADERS = (
@@ -261,6 +262,14 @@ GOOGLE_ANALYTICS_TRACK_PAGE_LOAD_TIME = True
 
 VIEWPOINT_SETTINGS = {
     'DEFAULT_BLOG': 'default'
+}
+
+BOOKMARK_SETTINGS = {
+    'VERIFY_EXISTS': False,
+    'USE_TAGGING': False,
+    'ITEMS_PER_FEED': 20,
+    'ABSOLUTE_URL_IS_BOOKMARK': True,
+    'MULTIUSER': False,
 }
 
 TINYMCE_JS_ROOT = os.path.join(STATIC_ROOT, 'js', 'tiny_mce')
