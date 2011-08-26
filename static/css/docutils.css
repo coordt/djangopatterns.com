@@ -1,4 +1,4 @@
-/* -- search page ----------------------------------------------------------- */
+/* @group Search Page */
 
 ul.search {
     margin: 10px 0 0 20px;
@@ -26,7 +26,10 @@ ul.keywordmatches li.goodmatch a {
     font-weight: bold;
 }
 
-/* -- index page ------------------------------------------------------------ */
+/* @end */
+
+
+/* @group Index Page */ 
 
 table.contentstable {
     width: 90%;
@@ -46,7 +49,23 @@ span.linkdescr {
     font-size: 90%;
 }
 
-/* -- general index --------------------------------------------------------- */
+/* @end */
+
+/* @group Local Contents */
+
+#contents ul.simple {
+    list-style: none inside;
+}
+#contents ul.simple li {
+    margin-bottom: .5em;
+    line-height: 1.2em;
+}
+#contents p {
+    margin: 0;
+}
+/* @end */
+
+/* @group General Index */
 
 table.indextable {
     width: 100%;
@@ -91,7 +110,13 @@ div.genindex-jumpbox {
     padding: 0.4em;
 }
 
-/* -- general body styles --------------------------------------------------- */
+/* @end */
+
+/* @group General Body Styles */
+
+h1 a, h2 a, h3 a, h4 a, h5 a {
+    color: #000;
+}
 
 a.headerlink {
     visibility: hidden;
@@ -111,21 +136,17 @@ div.body p.caption {
     text-align: inherit;
 }
 
+.caption {
+    margin: 0;
+    font-family: 'PT Sans Narrow', 'Arial Narrow', 'Arial', 'Helvetica';
+}
+
 div.body td {
     text-align: left;
 }
 
-.field-list ul {
-    padding-left: 1em;
-}
-
 .first {
     margin-top: 0 !important;
-}
-
-p.rubric {
-    margin-top: 30px;
-    font-weight: bold;
 }
 
 img.align-left, .figure.align-left, object.align-left {
@@ -159,11 +180,13 @@ img.align-center, .figure.align-center, object.align-center {
     text-align: right;
 }
 
+/* @end */
 
-/* -- topics ---------------------------------------------------------------- */
 
+/* @group Topics */
+
+/* Local table of contents is also contained in a div.topics block */
 div.topic {
-/*    border: 1px solid #ccc;*/
     padding: 7px 7px 0 7px;
     margin: 10px 0 10px 0;
 }
@@ -174,7 +197,16 @@ p.topic-title {
     margin-top: 10px;
 }
 
-/* -- admonitions ----------------------------------------------------------- */
+ul.auto-toc.simple {
+	list-style: none;
+}
+
+ul.auto-toc ul.auto-toc {
+	font-size: 100%;
+}
+/* @end */
+
+/* @group Admonitions */
 
 div.admonition, div.attention, div.caution, div.danger, div.error,
 div.hint, div.important, div.note, div.tip, div.warning {
@@ -192,6 +224,8 @@ p.admonition-title {
     font-weight: bold;
     padding-top: 3px;
     text-shadow: 0px 0px 1px #fff;
+    font-family: 'PT Sans Narrow', 'Arial Narrow', 'Arial', 'Helvetica';
+    font-size: 1em;
 }
 
 div.attention p.admonition-title, div.caution p.admonition-title,
@@ -214,7 +248,18 @@ div.body p.centered {
     margin-top: 25px;
 }
 
-/* -- tables ---------------------------------------------------------------- */
+p.rubric {
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+div.admonition p {
+    margin: 0;
+}
+
+/* @end */
+
+/* @group Tables */
 
 table.docutils {
     border: 0;
@@ -252,7 +297,9 @@ table.citation td {
     border-bottom: none;
 }
 
-/* -- other body styles ----------------------------------------------------- */
+/* @end */
+
+/* @group Lists */
 
 ol.arabic {
     list-style: decimal;
@@ -272,6 +319,10 @@ ol.lowerroman {
 
 ol.upperroman {
     list-style: upper-roman;
+}
+
+li p:last-child {
+    margin-bottom: 0;
 }
 
 dl {
@@ -301,6 +352,9 @@ dl.glossary dt {
     font-size: 1.1em;
 }
 
+/* @end */
+
+
 .field-list ul {
     margin: 0;
     padding-left: 1em;
@@ -308,6 +362,14 @@ dl.glossary dt {
 
 .field-list p {
     margin: 0;
+}
+
+.field-name {
+	weight:	bold;
+}
+
+.field-body {
+	
 }
 
 .refcount {
@@ -356,7 +418,7 @@ dl.glossary dt {
     font-style: oblique;
 }
 
-/* -- code displays --------------------------------------------------------- */
+/* @group Code Displays */
 
 pre {
     overflow: auto;
@@ -411,7 +473,17 @@ div.viewcode-block:target {
     padding: 0 10px;
 }
 
-/* -- math display ---------------------------------------------------------- */
+td.code {
+    width: 100%;
+}
+
+.highlight-python {
+    overflow: scroll;
+}
+
+/* @end */
+
+/* @group Math Display */
 
 img.math {
     vertical-align: middle;
@@ -425,7 +497,7 @@ span.eqno {
     float: right;
 }
 
-/* -- printout stylesheet --------------------------------------------------- */
+/* @end */
 
 @media print {
     div.document,
