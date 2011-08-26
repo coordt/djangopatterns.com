@@ -280,7 +280,7 @@ TINYMCE_JS_URL = "%sjs/tiny_mce/tiny_mce.js" % STATIC_URL
 COMPRESS_ENABLED = True
 COMPRESS_CSS_FILTERS = [
     'compressor.filters.css_default.CssAbsoluteFilter',
-    'compressor.filters.datauri.DataUriFilter',
+    # 'compressor.filters.datauri.DataUriFilter',
     'compressor.filters.cssmin.CSSMinFilter',
 ]
 COMPRESS_DATA_URI_MAX_SIZE = 3000
