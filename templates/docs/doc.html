@@ -1,9 +1,12 @@
 {% extends "docs/base_docs.html" %}
+{% load compress %}
 {% block head_title %}{{ doc.title|striptags|safe }}{% endblock %}
 {% block extra_head %}
   {{ block.super }}
+  {% compress css %}
   <link rel="stylesheet" href="{{ STATIC_URL }}css/docutils.css" type="text/css" />
   <link rel="stylesheet" href="{{ STATIC_URL }}css/pygments.css" type="text/css" />
+  {% endcompress %}
 {% endblock %}
 
 {% block body %}
@@ -22,6 +25,3 @@
 	{% load disqus_tags %}
     {% disqus_show_comments %}
 {% endblock body %}
-{% block extra_body_base %}
-{{ block.super }}
-{% endblock extra_body_base %}

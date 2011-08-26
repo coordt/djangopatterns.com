@@ -11,3 +11,4 @@ django-disqus==0.4.1
 
 --extra-index-url=http://callowayproject.com/simple/
 django-bookmarks==0.2.1
+django-compressor==0.9.2

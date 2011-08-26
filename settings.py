@@ -124,6 +124,7 @@ INSTALLED_APPS = APPS_DJANGO_BASE + \
         'django.contrib.redirects',
         'disqus',
         'bookmarks',
+        'compressor',
     )
 
 TEMPLATE_LOADERS = (
@@ -254,6 +255,7 @@ STATICFILES_FINDERS = (
     'staticfiles.finders.FileSystemFinder', 
     'staticfiles.finders.AppDirectoriesFinder',
     'staticfiles.finders.LegacyAppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
 )
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
@@ -274,6 +276,16 @@ BOOKMARK_SETTINGS = {
 
 TINYMCE_JS_ROOT = os.path.join(STATIC_ROOT, 'js', 'tiny_mce')
 TINYMCE_JS_URL = "%sjs/tiny_mce/tiny_mce.js" % STATIC_URL
+
+COMPRESS_ENABLED = True
+COMPRESS_CSS_FILTERS = [
+    'compressor.filters.css_default.CssAbsoluteFilter',
+    'compressor.filters.datauri.DataUriFilter',
+    'compressor.filters.cssmin.CSSMinFilter',
+]
+COMPRESS_DATA_URI_MAX_SIZE = 3000
+COMPRESS_OFFLINE = True
+
 try:
     from local_settings import *
 except ImportError:
