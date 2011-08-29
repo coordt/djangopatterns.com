@@ -1,6 +1,8 @@
 from django.core.urlresolvers import reverse
 from django.contrib.sites.models import Site
+from django.contrib.auth.models import User
 from django.utils.feedgenerator import Atom1Feed
+from django.shortcuts import get_object_or_404
 from bookmarks.feeds import BookmarkFeed
 
 class RecentChangesFeed(BookmarkFeed):
