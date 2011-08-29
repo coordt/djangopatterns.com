@@ -1,9 +1,18 @@
 import os, datetime
 from django.utils import simplejson
-from django.shortcuts import render_to_response
+from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from django.conf import settings
 from django.http import Http404
+from bookmarks.models import Bookmark
+
+def homepage(request):
+    """
+    Include recent changes
+    """
+    latest_changes = Bookmark.objects.filter(adder__id=1).order_by("-added")[:5]
+    return render(request, 'homepage.html', {'latest_changes': latest_changes})
+
 
 def get_doc_path(docroot, url):
     """

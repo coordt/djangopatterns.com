@@ -272,6 +272,7 @@ BOOKMARK_SETTINGS = {
     'ITEMS_PER_FEED': 20,
     'ABSOLUTE_URL_IS_BOOKMARK': True,
     'MULTIUSER': False,
+    'UNIQUE_BOOKMARKS': False,
 }
 
 TINYMCE_JS_ROOT = os.path.join(STATIC_ROOT, 'js', 'tiny_mce')

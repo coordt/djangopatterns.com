@@ -4,6 +4,7 @@
 {% block extra_head %}
   {{ block.super }}
   {% compress css %}
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/layout.css" type="text/css" />
   <link rel="stylesheet" href="{{ STATIC_URL }}css/docutils.css" type="text/css" />
   <link rel="stylesheet" href="{{ STATIC_URL }}css/pygments.css" type="text/css" />
   {% endcompress %}
@@ -15,9 +16,9 @@
     <li><a href="/">Home</a></li>
     <li><a href="{% url document-index %}">Patterns</a></li>
 {% for parent in doc.parents %}
- <li><a href="{{ parent.link }}">{{parent.title}}</a></li>
+<li><a href="{{ parent.link }}">{{parent.title}}</a></li>
 {% endfor %}
-    <li><a href="#">{{ doc.title }}</a></li>
+<li><a href="#">{{ doc.title }}</a></li>
 </ul>
 <div class="clearfix"></div>
 </div>

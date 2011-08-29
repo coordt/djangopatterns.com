@@ -7,6 +7,9 @@ class RecentChangesFeed(BookmarkFeed):
     """
     Slight alterations to the default bookmark feed
     """
+    def get_object(self, request, username='coordt', *args, **kwargs):
+        return get_object_or_404(User, username=username)
+    
     def title(self):
         return 'Latest entries on %s' % Site.objects.get_current().domain
     

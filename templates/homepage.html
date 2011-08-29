@@ -1,83 +1,22 @@
 {% extends "site_base.html" %}
-
-
 {% block head_title %}Home{% endblock %}
 {% block extra_head %}
 	{# <link rel="alternate" href="{% url rss_feed %}" type="application/rss+xml" title="RSS 2.0" charset="utf-8"> #}
 {% endblock %}
 {% block body %}
 	<div class="entrylist">
-		<h1>Coding Patterns in Django</h1>
-		<h2>About this site</h2>
-		<p>I created Django Patterns.com in response to a talk proposal rejection 
-		from DjangoCon.us. Although I was not privy to the exact discussion, 
-		reviewers and organizers felt a <a href="http://blip.tv/pycon-us-videos-2009-2010-2011/pycon-2011-pluggable-django-patterns-4900929" title="Pluggable Django Patterns">previous talk I had 
-		presented at PyCon in 2011</a> presented &ldquo;non-standard and 
-		controversial practices were framed as the normal and accepted ways of 
-		doing things&rdquo;. Obviously this &ldquo;raised concerns of misleading 
-		less experienced developers&rdquo;.</p>
-		<p>As a result, I want to provide a space where solutions to common Django
-		    problems are presented thoroughly and discussed <em>openly.</em>
-		</p>
-		<p>In short, this site&rsquo;s goals are:
-		    <ul class="simple">
-		        <li>Provide a place look up a pattern for doing something</li>
-		        <li>Get a clear explanation of how, when, why to use it</li>
-		        <li>Provide for feedback and open discussion of the pattern by the community</li>
-		        <li>Allow anyone to contribute patterns</li>
-		    </ul>
-		</p>
-		<h2>How to contribute</h2>
-		<p>There are several ways to contribute:
-		    <ul class="simple">
-		        <li>Comment and discuss patterns on the site</li>
-		        <li>Suggest improvements to the site</li>
-		        <li>Submit new patterns</li>
-		        <li>Add to or enhance existing patterns</li>
-		    </ul>
-		</p>
-		<h3>Comment and discuss patterns on the site</h3>
-		<p>Please contribute your ideas, pros and cons of patterns using the
-		    <a href="http://disqus.com/">Disqus</a> comments form on each page.</p>
-		<p>Here are some guidelines:
-		    <ul class="simple">
-		        <li>Be courteous.</li>
-		        <li>Comment on the pattern or idea, not the person submitting.</li>
-		        <li>Be helpful in your feedback</li>
-		    </ul>
-		</p>
-		<h3>Suggest improvements to the site</h3>
-		<p>In order to be a good community resource, I welcome any ideas to 
-		    improve the site. The best way is to open an issue on 
-		    <a href="https://github.com/coordt/djangopatterns.com/issues">the GitHub</a>
-		    repository for the site.
-		</p>
-		<p>The site&rsquo;s code is open source, and licensed under the BSD license,
-		    so feel free to contribute code, or just use the code for your own site.
-		</p>
-		<h3>Submit new patterns</h3>
-		<p>
-		    The Django Patterns content is actually a 
-		    <a href="http://sphinx.pocoo.org/">Sphinx</a> project. Its code is
-		    <a href="https://github.com/coordt/djangopatterns">on GitHub</a>.
-		    Fork the repository and add your pattern. There is an <tt>example_pattern.rst</tt>
-		    file with a basic outline. Then submit a pull request.
-		</p>
-		<p>
-		    Every complete submission will be accepted, even if I personally 
-		    disagree with the pattern. I reserve the right to make exceptions
-		    to what is accepted in the future, and will do so publicly. As 
-		    editor of the site, I may edit your submission for clarity, grammar, 
-		    and such.
-		</p>
-		<h3>Add to or enhance existing patterns</h3>
-		<p>
-		    Follow the same instructions for submitting a new pattern: fork the 
-		    <a href="https://github.com/coordt/djangopatterns">djangopatterns repository</a>,
-		    make the changes, and submit a pull request.
-		<p>
+		<h1>Coding Patterns in&nbsp;Django</h1>
+		<h2>Latest Changes</h2>
+		{% for item in latest_changes %}
+		<div class="item">
+		<div class="date">
+		    <span class="month">{{ item.added|date:"M" }}</span>
+		    <span class="day">{{ item.added|date:"d" }}</span>
+		    <span class="year">{{ item.added|date:"Y" }}</span>
+		</div>
+		  <h3><a href="{{ item.get_absolute_url }}">{{ item.description }}</a></h3>
+		  <p>{{ item.note }}</p>
+		</div>
+		{% endfor %}
 	</div>
-{% endblock %}
-{% block extra_body %}
-
 {% endblock %}

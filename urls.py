@@ -24,6 +24,7 @@ urlpatterns = patterns('django.contrib.syndication.views',
 
 urlpatterns += patterns('',
     url(r'^rss/$', RecentChangesFeed(), name="rss-feed"),
+    url(r'^atom/$', RecentChangesFeed(), name="atom-feed"),
     (r'^admin/', include(admin.site.urls)),
     url(
         r'^patterns/$',
@@ -36,6 +37,7 @@ urlpatterns += patterns('',
         views.document,
         name = 'document-detail',
     ),
+    (r'^$', views.homepage),
 )
 from calloway.urls import urlpatterns as calloway_patterns
 
