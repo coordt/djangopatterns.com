@@ -5,7 +5,9 @@
 {# <link rel="alternate" type="application/atom+xml" href="{% url atom-feed %}" title="Atom Changes to this site feed"> #}
 {% endblock %}
 {% block site_header %}
-<img src="{{ STATIC_URL }}img/djangopatterns-h.png" width="542" height="80" alt="DjangoPatterns.com">
+<h1 id="logo">
+    <a href="/" title="Django Coding Patterns Homepage">DjangoPatterns.com</a>
+</h1>
 {% endblock %}
 {% block sidebar %}
 	<div id="menu_container">

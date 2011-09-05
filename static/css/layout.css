@@ -31,6 +31,26 @@
     font-family: 'Arial', 'Helvetica', sans-serif;
     display: block;
 }
+#logo {
+    width: 542px;
+    height: 80px;
+    background: transparent url(../img/djangopatterns-h.png) no-repeat;
+}
+
+h1#logo a {
+    width: 542px;
+    height: 80px;
+    display: block;
+    text-indent: -9999em;
+}
+
+#breadcrumbs {
+    margin: 0 -10px;
+    padding: 0 10px;
+    margin-bottom: .4em;
+    border-bottom: 1px solid #E0E0E0;
+    z-index: 0;
+}
 
 	/* iPad Portrait/Browser */
 	@media only screen and (min-width: 768px) and (max-width: 991px) {}
@@ -59,7 +79,22 @@
             display: block;
             padding: 8px 32px 8px 8px;
             text-decoration: none;
-            
+        }
+        #logo {
+            width: 181;
+            height: 80px;
+            background: transparent url(../img/djangopatterns.png) no-repeat;
+        }
+
+        h1#logo a {
+            width: 181px;
+            height: 80px;
+            display: block;
+            text-indent: -9999em;
+        }
+        
+        #breadcrumbs {
+            background: #ddd;
         }
 	}
 	
@@ -230,12 +265,6 @@ a:visited:hover {
 ul.simple { list-style: disc inside; }
 
 ul.simple li { margin-bottom: .5em; }
-
-#breadcrumbs {
-    border-bottom: 1px solid #999;
-    border-top: 1px solid #999;
-    margin-bottom: .4em;
-}
 
 #breadcrumbs ul { margin: 0; }
 
