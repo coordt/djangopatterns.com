@@ -125,6 +125,7 @@ INSTALLED_APPS = APPS_DJANGO_BASE + \
         'disqus',
         'bookmarks',
         'compressor',
+        'django_oauth_twitter',
     )
 
 TEMPLATE_LOADERS = (
@@ -286,6 +287,13 @@ COMPRESS_CSS_FILTERS = [
 ]
 COMPRESS_DATA_URI_MAX_SIZE = 3000
 COMPRESS_OFFLINE = True
+
+##########################
+# Twitter settings
+##########################
+TWITTER_CONSUMER_SECRET = 'uCswL8jPU5XH0A8CN7Lc2syV9fT7z2WwAmV57GDu6Q'
+TWITTER_CONSUMER_KEY = 'ECZoS05Vb2CSF9sFmodGXQ'
+
 
 try:
     from local_settings import *

@@ -39,6 +39,13 @@ urlpatterns += patterns('',
     ),
     (r'^$', views.homepage),
 )
+
+from django_oauth_twitter.views import OAuthTwitter
+oauthtwitter = OAuthTwitter()
+urlpatterns += patterns('',
+   (r'^twitter/', include(oauthtwitter.urls))
+)
+
 from calloway.urls import urlpatterns as calloway_patterns
 
 urlpatterns += calloway_patterns
