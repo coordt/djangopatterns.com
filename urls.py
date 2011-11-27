@@ -40,8 +40,8 @@ urlpatterns += patterns('',
     (r'^$', views.homepage),
 )
 
-from django_oauth_twitter.views import OAuthTwitter
-oauthtwitter = OAuthTwitter()
+from tweeter.views import TweeterView
+oauthtwitter = TweeterView()
 urlpatterns += patterns('',
    (r'^twitter/', include(oauthtwitter.urls))
 )
