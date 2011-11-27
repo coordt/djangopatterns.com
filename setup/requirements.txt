@@ -13,9 +13,8 @@ django-disqus==0.4.1
 django-bookmarks==0.2.1
 django-compressor==0.9.2
 
-django-oauth-twitter==1.11
+tweeter==1.0b1
 oauth==1.0.1
 python-twitter==0.8.2
-oauth-python-twitter==0.8.2
+oauth-python-twitter==1.0
 oauth2==1.5.170
-simplejson==2.0.9

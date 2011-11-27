@@ -44,12 +44,24 @@ TIME_ZONE = 'America/New_York'
 LANGUAGE_CODE = 'en-us'
 USE_I18N = False
 
+TEMPLATE_CONTEXT_PROCESSORS = [
+    'django.core.context_processors.debug', 
+    'django.core.context_processors.i18n', 
+    'django.core.context_processors.media', 
+    'django.core.context_processors.request', 
+    'django.contrib.auth.context_processors.auth', 
+    'django.core.context_processors.static', 
+    'django.contrib.messages.context_processors.messages',
+    'tweeter.context_processors.twitter_userinfo',
+]
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware', 
     'django.contrib.sessions.middleware.SessionMiddleware', 
     'django.middleware.csrf.CsrfViewMiddleware', 
     'django.contrib.auth.middleware.AuthenticationMiddleware', 
+    'tweeter.middleware.SessionMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware', 
     'django.middleware.gzip.GZipMiddleware', 
     'django.middleware.http.ConditionalGetMiddleware', 
@@ -125,7 +137,7 @@ INSTALLED_APPS = APPS_DJANGO_BASE + \
         'disqus',
         'bookmarks',
         'compressor',
-        'django_oauth_twitter',
+        'tweeter',
     )
 
 TEMPLATE_LOADERS = (
