@@ -19,7 +19,7 @@ def get_doc_path(docroot, url):
     Find the correct path. it could be the url with a .fjson extension or
     it could be an additional /index.fjson
     """
-    doc_path = os.path.join(docroot, "%s.fjson" % url)
+    doc_path = os.path.join(docroot, f"{url}.fjson")
     index_path = os.path.join(docroot, os.path.join(url, "index.fjson"))
     if os.path.exists(doc_path):
         return doc_path

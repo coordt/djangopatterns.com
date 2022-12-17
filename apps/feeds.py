@@ -13,17 +13,14 @@ class RecentChangesFeed(BookmarkFeed):
         return get_object_or_404(User, username=username)
     
     def title(self):
-        return 'Latest entries on %s' % Site.objects.get_current().domain
+        return f'Latest entries on {Site.objects.get_current().domain}'
     
     def description(self):
-        return "Additions and changes to articles on %s" % Site.objects.get_current().domain    
+        return f"Additions and changes to articles on {Site.objects.get_current().domain}"    
     
     def link(self):
         absolute_url = reverse('rss-feed')
-        return "http://%s%s" % (
-                Site.objects.get_current().domain,
-                absolute_url,
-            )
+        return f"http://{Site.objects.get_current().domain}{absolute_url}"
 
 class AtomRecentChangesFeed(RecentChangesFeed):
     feed_type = Atom1Feed

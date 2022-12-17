@@ -89,10 +89,10 @@ try:
     from local_settings import STATIC_ROOT
 except ImportError:
     STATIC_ROOT = os.path.join(MEDIA_ROOT_PREFIX, 'static')
-    
 
-MEDIA_URL = '%suploads/' % MEDIA_URL_PREFIX
-STATIC_URL = "%sstatic/" % MEDIA_URL_PREFIX
+
+MEDIA_URL = f'{MEDIA_URL_PREFIX}uploads/'
+STATIC_URL = f"{MEDIA_URL_PREFIX}static/"
 
 MMEDIA_DEFAULT_STORAGE = 'media_storage.MediaStorage'
 MMEDIA_IMAGE_UPLOAD_TO = 'image/%Y/%m/%d'
@@ -258,7 +258,7 @@ NATIVE_TAGS = (
 ADMIN_TOOLS_THEMING_CSS = 'calloway/admin/css/theming.css'
 ADMIN_TOOLS_MENU = 'menu.CustomMenu'
 
-TINYMCE_JS_URL = '%scalloway/js/tiny_mce/tiny_mce.js' % STATIC_URL
+TINYMCE_JS_URL = f'{STATIC_URL}calloway/js/tiny_mce/tiny_mce.js'
 TINYMCE_JS_ROOT = os.path.join(STATIC_ROOT, 'js/tiny_mce')
 
 DOC_GIT = "git://github.com/coordt/djangopatterns.git"
@@ -289,7 +289,7 @@ BOOKMARK_SETTINGS = {
 }
 
 TINYMCE_JS_ROOT = os.path.join(STATIC_ROOT, 'js', 'tiny_mce')
-TINYMCE_JS_URL = "%sjs/tiny_mce/tiny_mce.js" % STATIC_URL
+TINYMCE_JS_URL = f"{STATIC_URL}js/tiny_mce/tiny_mce.js"
 
 COMPRESS_ENABLED = True
 COMPRESS_CSS_FILTERS = [
