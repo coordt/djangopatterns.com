@@ -44,13 +44,10 @@ def install_pkg(package, version=None):
     """
     Install a package. Ideally should be in the format pkgname==vnum
     """
-    pip = "%sbin/python %sbin/pip -q install" % (VENV, VENV)
-    virtenv = "-E %s" % VENV
-    extra_idx = " ".join("--extra-index-url=%s" % x for x in EXTRA_INDEXES)
-    if version is None:
-        pkg = package
-    else:
-        pkg = "%s==%s" % (package, version)
+    pip = f"{VENV}bin/python {VENV}bin/pip -q install"
+    virtenv = f"-E {VENV}"
+    extra_idx = " ".join(f"--extra-index-url={x}" for x in EXTRA_INDEXES)
+    pkg = package if version is None else f"{package}=={version}"
     cmd = [pip, virtenv, extra_idx, pkg]
     run(" ".join(cmd))
     _update_requirements(package, version)
@@ -60,10 +57,7 @@ def install_pkg(package, version=None):
 def install_pkg_local(package, version):
     pip = "pip -q install"
     extra_idx = "--extra-index-url=http://opensource.washingtontimes.com/simple/"
-    if version is None:
-        pkg = package
-    else:
-        pkg = "%s==%s" % (package, version)
+    pkg = package if version is None else f"{package}=={version}"
     cmd = [pip, extra_idx, pkg]
     local(" ".join(cmd))
 
@@ -71,7 +65,7 @@ def pkg_version(package):
     """
     Print out the version installed for a particular package
     """
-    run("%sbin/pip freeze | grep %s" % (VENV, package))
+    run(f"{VENV}bin/pip freeze | grep {package}")
 
 def update_reqs():
     """
@@ -80,14 +74,14 @@ def update_reqs():
     """
     
     req_path = os.path.join(VIRTUALENV_ROOT, CURRENT_SITE, REQUIREMENTS_PATH)
-    run('%s/bin/pip install -E %s -r %s' % (VENV, VENV, req_path))
+    run(f'{VENV}/bin/pip install -E {VENV} -r {req_path}')
 
 def reload_site():
     """
     Reload the apache process by touching the wsgi file
     """
     with cd(SITE_PATH):
-        run('touch %s' % WSGI_PATH)
+        run(f'touch {WSGI_PATH}')
 
 def update():
     """

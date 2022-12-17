@@ -15,25 +15,21 @@ def _has_os_package(opsys, package):
     """
     Check if the server os has the package installed
     """
-    if isinstance(package, basestring):
-        pkgs = package.split(' ')
-    else:
-        pkgs = package
-    
+    pkgs = package.split(' ') if isinstance(package, basestring) else package
     final_output = []
     has_everything = True
     list_pkg_cmd = SERVER_CMDS[opsys]['list_pkgs']
     with settings(
-        hide('warnings', 'running', 'stdout', 'stderr'),
-        warn_only=True
-    ):
+            hide('warnings', 'running', 'stdout', 'stderr'),
+            warn_only=True
+        ):
         for item in pkgs:
             if '%(package)s' in list_pkg_cmd:
                 output = run(list_pkg_cmd % {'package': item})
             elif '%s' in list_pkg_cmd:
                 output = run(list_pkg_cmd % item)
             else:
-                output = run('%s %s' % (list_pkg_cmd, item))
+                output = run(f'{list_pkg_cmd} {item}')
             final_output.append(output)
             has_everything = not output.failed
     return has_everything
@@ -80,19 +76,15 @@ def _install_python_pkgs(packages, virtualenv=None):
     require('has_pip', provided_by=[_install_pip,])
     if not env.has_pip:
         abort("pip is not installed, so the python packages can't be installed.")
-    if isinstance(packages, (list, tuple)):
-        pkgs = ' '.join(packages)
-    else:
-        pkgs = packages
-    
+    pkgs = ' '.join(packages) if isinstance(packages, (list, tuple)) else packages
     with settings(
-        hide('warnings', 'running', 'stdout', 'stderr'),
-        warn_only=True
-    ):
+            hide('warnings', 'running', 'stdout', 'stderr'),
+            warn_only=True
+        ):
         if virtualenv:
-            sudo('pip install -E %s %s' % (venv, pkgs))
+            sudo(f'pip install -E {venv} {pkgs}')
         else:
-            sudo('pip install %s' % pkgs)
+            sudo(f'pip install {pkgs}')
 
 def _install_git_scripts():
     if exists('git-scripts'):

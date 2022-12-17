@@ -17,9 +17,9 @@ class Builder(BaseBuilder):
     @restoring_chdir
     def build(self):
         os.chdir(self.source_path)
-        build_command = "sphinx-build -b %s . _build/%s" % (self.build_type, self.build_type)
+        build_command = f"sphinx-build -b {self.build_type} . _build/{self.build_type}"
         build_results = self.run(build_command)
-        print build_results
+        os.chdir(self.source_path)
         if 'no targets are out of date.' in build_results[1]:
             self._changed = False
         return build_results

@@ -28,20 +28,20 @@ def send_convore_update(msg, extra=""):
         print e
 
 def link_apache_conf(site_name):
-    dest = '/etc/apache2/sites-available/%s' % site_name
+    dest = f'/etc/apache2/sites-available/{site_name}'
     if not exists(dest):
-        sudo('ln -s %s/conf/apache2-%s %s' % (site_path, site_name, dest))
+        sudo(f'ln -s {site_path}/conf/apache2-{site_name} {dest}')
 
 def enable_site(site_name):
     """
     Enable an Apache site configuration and restart the process
     """
-    sudo('a2ensite %s' % site_name)
+    sudo(f'a2ensite {site_name}')
     sudo('/etc/init.d/apache2 restart')
 
 def disable_site(site_name):
     """
     Disable an Apache site configuration and restart the process
     """
-    sudo('a2dissite %s' % site_name)
+    sudo(f'a2dissite {site_name}')
     sudo('/etc/init.d/apache2 restart')

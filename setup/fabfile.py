@@ -58,11 +58,13 @@ def update_site():
     docs_path = os.path.join(site_path, 'doc_src')
     with cd(site_path):
         run('git pull --all')
-        run('workon djangopatterns && pip install -r %s/setup/requirements.txt' % site_path)
-        run('workon djangopatterns && %s/manage.py syncdb' % site_path)
+        run(
+            f'workon djangopatterns && pip install -r {site_path}/setup/requirements.txt'
+        )
+        run(f'workon djangopatterns && {site_path}/manage.py syncdb')
         # run('workon djangopatterns && %s/manage.py migrate' % site_path)
-        run('workon djangopatterns && %s/manage.py collectstatic --noinput' % site_path)
-        run('workon djangopatterns && %s/manage.py compress' % site_path)
+        run(f'workon djangopatterns && {site_path}/manage.py collectstatic --noinput')
+        run(f'workon djangopatterns && {site_path}/manage.py compress')
     with cd(docs_path):
         run('git pull --all')
         # run('workon djangopatterns && cd doc_src && make clean')
